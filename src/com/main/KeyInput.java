@@ -27,7 +27,7 @@ public class KeyInput extends KeyAdapter{
 				}else if(key == KeyEvent.VK_S){
 					go.setVelY(8);
 				}else if(key == KeyEvent.VK_A){
-					go.setVelX(8);
+					go.setVelX(-8);
 				}else if(key == KeyEvent.VK_D){
 					go.setVelX(8);
 				}

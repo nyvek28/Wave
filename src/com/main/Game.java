@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 
@@ -15,15 +16,18 @@ public class Game extends Canvas implements Runnable{
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawn;
+	private Random r;
 	
 	public Game(){
 		
 		this.setHandler(new Handler());
 		this.setHud(new HUD());
 		this.setSpawn(new Spawn(this.getHandler(), this.getHud()));
+		this.setR(new Random());
 		this.addKeyListener(new KeyInput(this.getHandler()));
 		new Window(Game.WIDTH, Game.HEIGHT, "Wave", this);
 		this.getHandler().add(new Player(100, 100, Id.Player, this.getHandler()));
+		this.getHandler().add(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), Id.BasicEnemy, this.getHandler()));
 		
 	}
 	
@@ -167,6 +171,14 @@ public class Game extends Canvas implements Runnable{
 
 	public void setSpawn(Spawn spawn) {
 		this.spawn = spawn;
+	}
+
+	public Random getR() {
+		return r;
+	}
+
+	public void setR(Random r) {
+		this.r = r;
 	}
 
 }

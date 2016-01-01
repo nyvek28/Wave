@@ -21,7 +21,7 @@ public class Spawn {
 	public void tick(){
 		
 		this.scoreKeep++;
-		if(this.getScoreKeep() >= 1000){
+		if(this.getScoreKeep() >= 500){
 			this.setScoreKeep(0);
 			this.getHud().setLevel(this.getHud().getLevel() + 1);
 			this.getHandler().add(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), Id.BasicEnemy, this.getHandler()));
